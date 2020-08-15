@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block content %}
+<div class="bg-image"></div>
+
+<div class="bg-text">
+  <div class="main">
+    <div class="title">
+      <h1>X-Ray Image Classifier</h1>
+      <div>
+      <img src="{{ url_for('static',filename='banner-2-line.png') }}" alt="seperator" >
+      </div>
+      <div>
+    
+    </div><!-- /.about-three__title -->
+      <h4 align=left>Note:</h4>
+    
+      <p align=left style="font-family:courier;"><small>1. Input image must be an X-ray image only.
+        <br>2. Submitting random images other than X-rays will give a irrelevant and nonsensical output. 
+        <br>3. Image should be in png, gif, or jpeg format. 
+        <br>4. X-ray should be of front view of the chest.
+        <br>5. This app is designed to distinguish between COVID, Pneumonia (other viral/bacterial), and Normal. Submitting X-ray images of other diseases will result in a faulty output.
+        <br>6. If Pneumonia is detected, this app will further distinguish the category of Pneumonia (other Viral or Bacterial).A probability value will be displayed which denotes the likelihood of the category of Pneumonia.
+                 </small></p>
+      <!-- <p>
+        <small>A web app demo</small>
+      </p> -->
+    
+    </div>
+  
+    <div class="panel">
+      <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
+      <label for="file-upload" id="file-drag" class="upload-box">
+        <div id="upload-caption">Drop image here or click to select</div>
+        <img id="image-preview" class="hidden" />
+      </label>
+    </div>
+    <div style="margin-bottom: 2rem;">
+      <input type="button" value="Submit" class="button" onclick="submitImage();" />
+      <input type="button" value="Clear" class="button" onclick="clearImage();" />
+    </div>
+    <div>
+      
+  </div><!-- /.about-three__title -->
+    <div id="image-box">
+      <img id="image-display" />
+      <div id="pred-result" class="hidden"></div>
+      <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+        <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+      </svg>
+    </div>
+  </div> 
+</div>
+
+
+{% endblock %}
